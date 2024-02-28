@@ -1,12 +1,21 @@
 version: '3.8'
 
 services:
-  mail:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - './config.ini:/config.ini'
+  mailcatcher:
+    image: dockage/mailcatcher:0.9.0
     ports:
-      - '1025:1025'
-      - '127.0.0.1:8080:1080'
+      - 1025:1025
+      - 1080:1080
+
+  msmtp:
+    image: crazymax/msmtpd
+    
+  # mail:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - './config.ini:/config.ini'
+  #   ports:
+  #     - '1025:1025'
+  #     - '1080:1080'
