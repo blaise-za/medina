@@ -1,5 +1,5 @@
 To: {{ recipient }}
-Cc: {{ ccrecipient }}
+Cc: {{ cc }}
 Subject: {{ subject }}
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary={{ boundary }}
@@ -8,7 +8,31 @@ Content-Type: multipart/mixed; boundary={{ boundary }}
 Content-Type: text/plain; charset=UTF-8
 Content-Disposition: inline
 
-bonjour
+Cher Parrain,
+
+Nous espérons que vous allez bien.
+
+Comme convenu nous vous tenons informés de la scolarité de votre filleul.
+
+{{ firstname }} poursuit sa scolarité en classe de {{ class }} et travaille consciencieusement.
+{% if ranking %}{{ firstname }} est classé  {{ ranking }}{% if student_nb %} sur {{ student_nb }}{% endif %}{% if average %} avec une moyenne de {{ average }}{% endif %}.
+Vous trouverez le bulletin du premier semestre en PJ.{% endif %}
+
+Des membres MMS sont en contact régulier avec les familles des enfants parrainés pour suivre le travail scolaire de leur enfant et s’assurer du progrès pour le second semestre.
+
+Merci encore de votre confiance et de votre soutien.
+Ensemble nous travaillons main dans la main pour l’avenir des enfants.
+
+Bien cordialement,
+
+Mangone Thiam
+President
+My Medina Schools (MMS)
+www.mymedinaschools.com
++447447469996
+facebook/ instagram
+https://www.facebook.com/mymedinaschools
+https://www.instagram.com/mymedinaschools/
 
 --{{ boundary }}
 Content-Type: application/octet-stream; name=consular-service-request-form-completed.pdf

@@ -14,8 +14,9 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./config.ini:/config.ini:ro
-      - ./message.txt.jinja2:/message.txt.jinja2
-      - ./consular-service-request-form-completed.pdf:/consular-service-request-form-completed.pdf
+      - ./message.txt.jinja2:/message.txt.jinja2:ro
+      - ./sendmails.sh:/sendmails.sh:ro
+      - ./resources:/resources:ro
 
   msmtp2:
     image: dmitryrck/msmtp
