@@ -1,0 +1,17 @@
+To: {{ recipient }}
+Cc: {{ ccrecipient }}
+Subject: {{ subject }}
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary={{ boundary }}
+
+--{{ boundary }}
+Content-Type: text/plain; charset=UTF-8
+Content-Disposition: inline
+
+bonjour
+
+--{{ boundary }}
+Content-Type: application/octet-stream; name=consular-service-request-form-completed.pdf
+Content-Disposition: attachment; filename=consular-service-request-form-completed.pdf
+Content-Transfer-Encoding: base64
+

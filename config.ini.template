@@ -1,0 +1,17 @@
+account default
+host mailcatcher
+port 1025
+tls_starttls  off
+auth  off
+from blaise@mail.com
+
+# gmail account
+account gmail
+auth on
+host smtp.gmail.com
+port 587
+user
+password
+from test@gmail.com
+tls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
