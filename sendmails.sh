@@ -1,8 +1,9 @@
 #!/bin/bash
 
 while IFS=',' read -r code_mms firstname name class ranking student_nb average recipient file_path filename from cc; do
-  boundary=$(uuidgen)
-  echo $firstname, $name, $class, $ranking, $student_nb, $average, $code_mms, $file_path, $filename, $from, $cc, $recipient, $boundary
+  # boundary=$(uuidgen)
+  echo "$code_mms, $firstname, $name, $class, $ranking, $student_nb, $average, $recipient, $file_path, $filename, $from, $cc, $boundary"
+  break
   # jinja2 \
   #   -D recipient="$recipient" \
   #   -D subject="test email" \
