@@ -1,3 +1,4 @@
 config.ini
 *.eml
 resources/*
+.DS_Store
