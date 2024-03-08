@@ -1,15 +1,17 @@
 #!/bin/bash
+boundary=$(uuidgen)
+tail -n+2 resources/data.csv | while IFS=',' read -r codemms firstname name class ranking student_nb average recipient file_path filename from cc; do
+  # echo $boundary
+  echo "$codemms, $firstname, $name, $class, $ranking, $student_nb, $average, $recipient, $file_path, $filename, $from, $cc"
+  echo $recipient
 
-while IFS=',' read -r code_mms firstname name class ranking student_nb average recipient file_path filename from cc; do
-  # boundary=$(uuidgen)
-  echo "$code_mms, $firstname, $name, $class, $ranking, $student_nb, $average, $recipient, $file_path, $filename, $from, $cc, $boundary"
+  jinja2 -D recipient=$recipient \
+          -D subject="test email" \
+          -D boundary=$boundary \
+          message.txt.jinja2 > message.txt
+
   break
-  # jinja2 \
-  #   -D recipient="$recipient" \
-  #   -D subject="test email" \
-  #   -D boundary=$boundary \
-  #   message.txt.jinja2 > message.txt
-done < resources/data.csv
+done
 
     # -D firstname=$firstname \
     # -D name=$name \
@@ -32,7 +34,7 @@ done < resources/data.csv
 #   -D subject="test email" \
 #   -D boundary=$boundary \
 #   message.txt.jinja2 > message.txt
-  
+
 # uuencode -m $filepath $(basename $filepath) >> message.txt
 # echo "" >> message.txt
 # echo "--$boundary--" >> message.txt

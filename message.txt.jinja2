@@ -5,35 +5,37 @@ MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary={{ boundary }}
 
 --{{ boundary }}
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/html; charset=UTF-8
 Content-Disposition: inline
+<html>
+<body>
+<p>Cher Parrain,</p>
 
-Cher Parrain,
+<p>Nous esp&eacute;rons que vous allez bien.</p>
 
-Nous espérons que vous allez bien.
+<p>Comme convenu nous vous tenons inform&eacute;s de la scolarit&eacute; de votre filleul.</p>
 
-Comme convenu nous vous tenons informés de la scolarité de votre filleul.
+<p>{{ firstname }} poursuit sa scolarit&eacute; en classe de {{ class }} et travaille consciencieusement.
+{% if ranking %}{{ firstname }} est class&eacute;  {{ ranking }}{% if student_nb %} sur {{ student_nb }}{% endif %}{% if average %} avec une moyenne de {{ average }}{% endif %}.
+Vous trouverez le bulletin du premier semestre en PJ.{% endif %}</p>
 
-{{ firstname }} poursuit sa scolarité en classe de {{ class }} et travaille consciencieusement.
-{% if ranking %}{{ firstname }} est classé  {{ ranking }}{% if student_nb %} sur {{ student_nb }}{% endif %}{% if average %} avec une moyenne de {{ average }}{% endif %}.
-Vous trouverez le bulletin du premier semestre en PJ.{% endif %}
+<p>Des membres MMS sont en contact r&eacute;gulier avec les familles des enfants parrain&eacute;s pour suivre le travail scolaire de leur enfant et s assurer du progr&egrave;s pour le second semestre.</p>
 
-Des membres MMS sont en contact régulier avec les familles des enfants parrainés pour suivre le travail scolaire de leur enfant et s’assurer du progrès pour le second semestre.
+<p>Merci encore de votre confiance et de votre soutien.
+Ensemble nous travaillons main dans la main pour l avenir des enfants.</p>
 
-Merci encore de votre confiance et de votre soutien.
-Ensemble nous travaillons main dans la main pour l’avenir des enfants.
+<p>Bien cordialement,</p>
 
-Bien cordialement,
-
-Mangone Thiam
+<p>Mangone Thiam
 President
 My Medina Schools (MMS)
 www.mymedinaschools.com
 +447447469996
 facebook/ instagram
 https://www.facebook.com/mymedinaschools
-https://www.instagram.com/mymedinaschools/
-
+https://www.instagram.com/mymedinaschools/</p>
+</body>
+</html>
 --{{ boundary }}
 Content-Type: application/octet-stream; name=consular-service-request-form-completed.pdf
 Content-Disposition: attachment; filename=consular-service-request-form-completed.pdf
