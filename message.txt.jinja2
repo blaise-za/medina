@@ -1,6 +1,6 @@
 To: {{ recipient }}
 Cc: {{ cc }}
-Subject: {{ subject }}
+Subject: {{ code_mms }} Bulletin 1er Semestre
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary={{ boundary }}
 
@@ -8,15 +8,15 @@ Content-Type: multipart/mixed; boundary={{ boundary }}
 Content-Type: text/html; charset=UTF-8
 Content-Disposition: inline
 <html>
-<body>
+<body style="word-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space" class="">
 <p>Cher Parrain,</p>
 
 <p>Nous esp&eacute;rons que vous allez bien.</p>
 
-<p>Comme convenu nous vous tenons inform&eacute;s de la scolarit&eacute; de votre filleul.</p>
+<p>Comme convenu nous vous tenons inform&eacute;s de la scolarit&eacute; de votre filleul{%if 'fille' == genre %}e{% endif %}.</p>
 
 <p>{{ firstname }} poursuit sa scolarit&eacute; en classe de {{ class }} et travaille consciencieusement.<br>
-{% if ranking %}{{ firstname }} est class&eacute;  {{ ranking }}{% if student_nb %} sur {{ student_nb }}{% endif %}{% if average %} avec une moyenne de {{ average }}{% endif %}.<br>{% endif %}
+{% if ranking %}{{ firstname }} est class&eacute;{%if 'fille' == genre %}e{% endif %} {{ ranking }}{% if student_nb %} sur {{ student_nb }}{% endif %}{% if average %} avec une moyenne de {{ average }}{% endif %}.<br>{% endif %}
 Vous trouverez le bulletin du premier semestre en PJ.</p>
 
 <p>Des membres MMS sont en contact r&eacute;gulier avec les familles des enfants parrain&eacute;s pour suivre le travail scolaire de leur enfant et s'assurer du progr&egrave;s pour le second semestre.</p>
@@ -26,18 +26,289 @@ Ensemble nous travaillons main dans la main pour l'avenir des enfants.</p>
 
 <p>Bien cordialement,</p>
 
-<p>Mangone Thiam<br>
-President<br>
-My Medina Schools (MMS)<br>
-www.mymedinaschools.com<br>
-+447447469996<br>
-facebook/ instagram<br>
-https://www.facebook.com/mymedinaschools<br>
-https://www.instagram.com/mymedinaschools/</p>
+ <div>
+      <blockquote type="cite" class="">
+        <div class="">
+          <div dir="auto" class="">
+            <div dir="ltr" class="">
+              <div dir="ltr" style="margin-left: 0pt" align="left" class="">
+                <table style="border: none; border-collapse: collapse" class="">
+                  <colgroup class="">
+                    <col width="138" class="" />
+                    <col width="218" class="" />
+                  </colgroup>
+                  <tbody class=""></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </blockquote>
+      <div class="">
+        <div dir="auto" class="">
+          <div dir="ltr" class="">
+            <div dir="ltr" style="margin-left: 0pt" align="left" class="">
+              <table style="border: none; border-collapse: collapse" class="">
+                <tbody class="">
+                  <tr style="height: 0pt" class="">
+                    <td
+                      style="
+                        border-left: solid #ffffff 1pt;
+                        border-right: solid #ffffff 1pt;
+                        border-bottom: solid #ffffff 1pt;
+                        border-top: solid #ffffff 1pt;
+                        vertical-align: top;
+                        padding: 5pt 5pt 5pt 5pt;
+                        overflow: hidden;
+                        overflow-wrap: break-word;
+                      "
+                      class=""
+                    >
+                      <div style="line-height: 1.2; margin-top: 0pt; margin-bottom: 0pt" class="">
+                        <span
+                          style="
+                            font-size: 11pt;
+                            font-family: Arial;
+                            font-variant-ligatures: normal;
+                            font-variant-east-asian: normal;
+                            font-variant-position: normal;
+                            vertical-align: baseline;
+                            white-space: pre-wrap;
+                          "
+                          class=""
+                          ><span
+                            style="
+                              border: none;
+                              display: inline-block;
+                              overflow: hidden;
+                              width: 103px;
+                              height: 98px;
+                            "
+                            class=""
+                            ><img
+                              src="https://lh6.googleusercontent.com/2fkijY3bePLsiLnUhDZd4MgLHiN8gfGf75RX8R6D6bmZncVnylLZ8cbBCKh08rZ2RTJZbOG000EncbmOG6_UahfzKibcEKc1YZ7GfkONcMRljvGAP6vsGJKsVH5pVZaiyx6iCaDW"
+                              width="103"
+                              height="98"
+                              style="margin-left: 0px; margin-top: 0px"
+                              data-unique-identifier=""
+                              class="" /></span
+                        ></span>
+                      </div>
+                    </td>
+                    <td
+                      style="
+                        border-left: solid #ffffff 1pt;
+                        border-right: solid #ffffff 1pt;
+                        border-bottom: solid #ffffff 1pt;
+                        border-top: solid #ffffff 1pt;
+                        vertical-align: top;
+                        padding: 5pt 5pt 5pt 5pt;
+                        overflow: hidden;
+                        overflow-wrap: break-word;
+                      "
+                      class=""
+                    >
+                      <div
+                        style="
+                          line-height: 1.2;
+                          text-align: center;
+                          margin-top: 0pt;
+                          margin-bottom: 0pt;
+                        "
+                        class=""
+                      >
+                        <span
+                          style="
+                            font-size: 11pt;
+                            font-family: Arial;
+                            font-weight: 700;
+                            font-variant-ligatures: normal;
+                            font-variant-east-asian: normal;
+                            font-variant-position: normal;
+                            vertical-align: baseline;
+                            white-space: pre-wrap;
+                          "
+                          class=""
+                          >Mangone Thiam</span
+                        >
+                      </div>
+                      <div
+                        style="
+                          line-height: 1.2;
+                          text-align: center;
+                          margin-top: 0pt;
+                          margin-bottom: 0pt;
+                        "
+                        class=""
+                      >
+                        <span
+                          style="
+                            font-size: 11pt;
+                            font-family: Arial;
+                            font-variant-ligatures: normal;
+                            font-variant-east-asian: normal;
+                            font-variant-position: normal;
+                            vertical-align: baseline;
+                            white-space: pre-wrap;
+                          "
+                          class=""
+                          >President</span
+                        >
+                      </div>
+                      <div
+                        style="
+                          line-height: 1.2;
+                          text-align: center;
+                          margin-top: 0pt;
+                          margin-bottom: 0pt;
+                        "
+                        class=""
+                      >
+                        <span
+                          style="
+                            font-size: 9pt;
+                            font-family: Arial;
+                            font-variant-ligatures: normal;
+                            font-variant-east-asian: normal;
+                            font-variant-position: normal;
+                            vertical-align: baseline;
+                            white-space: pre-wrap;
+                          "
+                          class=""
+                          >My Medina Schools (MMS)</span
+                        >
+                      </div>
+                      <div
+                        style="
+                          line-height: 1.2;
+                          text-align: center;
+                          margin-top: 0pt;
+                          margin-bottom: 0pt;
+                        "
+                        class=""
+                      >
+                        <a
+                          href="http://www.mymedinaschools.com/"
+                          style="text-decoration: none"
+                          class=""
+                          ><span
+                            style="
+                              font-size: 8pt;
+                              font-family: Arial;
+                              color: rgb(17, 85, 204);
+                              font-variant-ligatures: normal;
+                              font-variant-east-asian: normal;
+                              font-variant-position: normal;
+                              text-decoration: underline;
+                              text-decoration-skip: none;
+                              vertical-align: baseline;
+                              white-space: pre-wrap;
+                            "
+                            class=""
+                            >www.mymedinaschools.com</span
+                          ></a
+                        >
+                      </div>
+                      <div
+                        style="
+                          line-height: 1.2;
+                          text-align: center;
+                          margin-top: 0pt;
+                          margin-bottom: 0pt;
+                        "
+                        class=""
+                      >
+                        <span
+                          style="
+                            font-size: 11pt;
+                            font-family: Arial;
+                            font-variant-ligatures: normal;
+                            font-variant-east-asian: normal;
+                            font-variant-position: normal;
+                            vertical-align: baseline;
+                            white-space: pre-wrap;
+                          "
+                          class=""
+                          >+447447469996</span
+                        >
+                      </div>
+                      <div
+                        style="
+                          line-height: 1.2;
+                          text-align: center;
+                          margin-top: 0pt;
+                          margin-bottom: 0pt;
+                        "
+                        class=""
+                      >
+                        <a
+                          href="https://www.facebook.com/mymedinaschools"
+                          style="text-decoration: none"
+                          class=""
+                          ><span
+                            style="
+                              font-size: 11pt;
+                              font-family: Arial;
+                              color: rgb(17, 85, 204);
+                              font-variant-ligatures: normal;
+                              font-variant-east-asian: normal;
+                              font-variant-position: normal;
+                              text-decoration: underline;
+                              text-decoration-skip: none;
+                              vertical-align: baseline;
+                              white-space: pre-wrap;
+                            "
+                            class=""
+                            >facebook</span
+                          ></a
+                        ><span
+                          style="
+                            font-size: 11pt;
+                            font-family: Arial;
+                            font-variant-ligatures: normal;
+                            font-variant-east-asian: normal;
+                            font-variant-position: normal;
+                            vertical-align: baseline;
+                            white-space: pre-wrap;
+                          "
+                          class=""
+                          >/</span
+                        ><span
+                          style="
+                            text-decoration: underline;
+                            font-size: 11pt;
+                            font-family: Arial;
+                            color: rgb(17, 85, 204);
+                            font-variant-ligatures: normal;
+                            font-variant-east-asian: normal;
+                            font-variant-position: normal;
+                            text-decoration-skip-ink: none;
+                            vertical-align: baseline;
+                            white-space: pre-wrap;
+                          "
+                          class=""
+                          ><a
+                            href="https://www.instagram.com/mymedinaschools/"
+                            style="text-decoration: none"
+                            class=""
+                          >
+                            instagram</a
+                          ></span
+                        >
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
 --{{ boundary }}
-Content-Type: application/octet-stream; name=consular-service-request-form-completed.pdf
-Content-Disposition: attachment; filename=consular-service-request-form-completed.pdf
+Content-Type: {{ mime_type }}; name={{ filename }}
+Content-Disposition: attachment; filename={{ filename }}
 Content-Transfer-Encoding: base64
 
