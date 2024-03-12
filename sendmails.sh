@@ -1,12 +1,14 @@
 #!/bin/bash
 
 # test if there is one parameter
-if [ $# -ne 1 ]; then
-    echo "Usage: $0 <smtp account>"
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 <smtp account> <base path for attachement files>" 
     exit 1
   else
     # set account to $1
     account=$1
+    # set base path to $2
+    base_path=$2
 fi
 
 #function to  convert the first character of each word in uppercase
@@ -29,16 +31,31 @@ get_suffixe() {
     echo "$1" | rev | cut -d '.' -f 1 | rev
 }
 
-boundary=$(uuidgen)
+# function to delete white carhacters before the string
+delete_white_characters() {
+    echo "$1" | sed 's/^ *//'
+}
 
-while IFS=',' read -r codemms firstname name class ranking student_nb average recipient file_path filename from cc genre isdone
+# function to validate file in parameter exists, return 1 if yes, 0 if no
+validate_file() {
+    test -f "$1" && echo 1 || echo 0
+}
+
+# function to get the last colunm in a string with separator '/'
+get_file() {
+    echo "$1" | rev | cut -d '/' -f 1 | rev
+}
+
+boundary=$(uuidgen)
+echo "code mms,state,comment" > out/output.csv
+
+while IFS=',' read -r codemms firstname name class ranking student_nb average recipient file_path filename from cc genre is_done other
   do
     export recipient=$recipient
     export cc=$(echo "$cc" | tr '[:upper:]' '[:lower:]')
     export code_mms=$codemms
-    export file_path=$file_path
-    export filename=$(echo "$filename" | tr ' ' '-')
-    # export filename="$filename"
+    export file_path=$( echo $base_path/$( delete_white_characters "$( basename "$file_path" )"))
+    export filename=$( echo "$filename".$( get_suffixe "$( basename "$file_path" )") | tr ' ' '-' )
     export from=$from
     export firstname=$(capitalize "$firstname")
     export name=$name
@@ -48,30 +65,30 @@ while IFS=',' read -r codemms firstname name class ranking student_nb average re
     export average=$(replace_dot "$average")
     export boundary=$boundary
     export mime_type=$(file -b --mime-type "$file_path")
-    # export subject="test email"
     export genre=$(echo $genre | tr '[:upper:]' '[:lower:]')
-    export isdone=$(echo $isdone | tr '[:upper:]' '[:lower:]')
+    export is_done=$(echo $is_done | tr '[:upper:]' '[:lower:]')
 
-    # test if isdone = 'no'
-    if [ $isdone="no" ]; then
-      export file_path=resources/DSC_0024.jpg
-      export recipient=blaise.zarka@gmail.com
-      export cc="mangone.thiam@mymedinaschools.com"
-      export filename=$(echo $filename.$( get_suffixe $(basename $file_path)))
-
+    # test if attachement exists
+    does_exist=`test -f "$file_path" && echo "1" || echo "0"`
+    
+    if [[ $is_done == 'no' && $does_exist == '1' ]]; then
       j2 --format=env message.txt.jinja2 > message.txt
       base64 "$file_path" >> message.txt
       echo "" >> message.txt
       echo "--$boundary--" >> message.txt
 
       #wait for 30s
-      # sleep 30
+      # sleep 2
 
       #send the email
       cat message.txt | msmtp -t -C config.ini -a $account
-      echo "mail sent to $recipient cc $cc with attachement $file_path and account $account" | tee -a output.log
+      echo "$code_mms,success,email sent to $recipient cc $cc with attachement $file_path and account $account" | tee -a out/output.csv
+    elif [[ $is_done == 'no' && $does_exist -eq 0 ]]; then
+      # echo "$file_path: no such file"
+      echo "$code_mms,error,$(basename "$file_path") : no such file" | tee -a out/output.csv
+    else
+      echo "already done : email already sent to $recipient cc $cc with attachement $file_path"
     fi
-    break
   done < <(tail -n +2 resources/data.csv)
 
 

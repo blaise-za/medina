@@ -17,6 +17,7 @@ services:
       - ./message.txt.jinja2:/message.txt.jinja2:ro
       - ./sendmails.sh:/sendmails.sh:ro
       - ./resources:/resources:ro
+      - ./out:/out
 
   msmtp2:
     image: dmitryrck/msmtp
