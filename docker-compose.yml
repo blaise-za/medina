@@ -16,6 +16,8 @@ services:
       - ./config.ini:/config.ini:ro
       - ./message.txt.jinja2:/message.txt.jinja2:ro
       - ./sendmails.sh:/sendmails.sh:ro
+      - ./message-sem2.txt.jinja2:/message-sem2.txt.jinja2:ro
+      - ./sendmails-sem2.sh:/sendmails-sem2.sh:ro
       - ./resources:/resources:ro
       - ./out:/out
 
