@@ -77,8 +77,8 @@ while IFS=',' read -r codemms firstname name class ranking student_nb average re
       echo "" >> message.txt
       echo "--$boundary--" >> message.txt
 
-      #wait for 30s
-      # sleep 2
+      #wait for 2s
+      sleep 2
 
       #send the email
       cat message.txt | msmtp -t -C config.ini -a $account
