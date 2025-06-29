@@ -1,8 +1,8 @@
 services:
   mailcatcher:
-    image: dockage/mailcatcher:0.9.0
+    image: dockage/mailcatcher:0.10.0
     ports:
-      - 1025:1025
+      - :1025
       - 1080:1080
 
   msmtp:
@@ -15,7 +15,9 @@ services:
       - ./message.txt.jinja2:/message.txt.jinja2:ro
       - ./sendmails.sh:/sendmails.sh:ro
       - ./message-sem2.txt.jinja2:/message-sem2.txt.jinja2:ro
+      - ./message-2024.txt.jinja2:/message-2024.txt.jinja2:ro
       - ./sendmails-sem2.sh:/sendmails-sem2.sh:ro
+      - ./sendmails-2024.sh:/sendmails-2024.sh:ro
       - ./resources:/resources:ro
       - ./out:/out
 
