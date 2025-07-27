@@ -1,6 +1,6 @@
 To: {{ recipient }}
 Cc: {{ cc }}
-Subject: [{{ code_mms }}] Votre filleul{%if 'fille' == genre %}e{% endif %} a réussi!
+Subject: [{{ code_mms }}] Votre filleul
 MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary={{ boundary }}
 
@@ -19,7 +19,7 @@ Content-Disposition: inline
 
     <p>Cet &eacute;v&eacute;nement s&apos;est d&eacute;roul&eacute; dans l&apos;&eacute;cole Babacar Ndiaye Wack 1 de la M&eacute;dina o&ugrave; &eacute;taient r&eacute;unis des membres de l&apos;&eacute;quipe MMS, les filleuls et leurs familles ainsi que les directrices et directeurs des &eacute;coles que nous suivons.</p>
 
-    <p>Pour cette rentr&eacute;e 2025, vous soutenez l&apos;enfant <strong>MATY BADJI</strong> qui rentre en classe de <em>QUATRIEME</em>.</p>
+    <p>Pour cette rentr&eacute;e 2025, vous soutenez l&apos;enfant <strong>*{{ firstname }}* {{ name }}</strong> qui rentre en classe de <em>{{ class }}</em>.</p>
 
     <p>Apr&egrave;s la lecture du contrat, les parents ont apport&eacute; leurs signatures. L&apos;&eacute;motion &eacute;tait au rendez-vous, la joie et la fiert&eacute; pouvaient se lire sur les visages de tous les participants.</p>
     <p>Suite &agrave; cette c&eacute;r&eacute;monie, les parents de chaque filleul sont venus retirer &agrave; notre si&egrave;ge de Dakar la totalit&eacute; des fournitures pour le coll&egrave;ge. Cet achat s&apos;est fait par des membres de l&apos;&eacute;quipe MMS qui ont remis les fournitures directement aux familles.</p>

@@ -49,37 +49,40 @@ get_file() {
 boundary=$(uuidgen)
 echo "code mms,state,comment" > out/output.csv
 
-while IFS=',' read -r PHOTO codemms NOM PRENOM CLASSE EMAIL PHOTO ENVOYE other
+while IFS=',' read -r RECEIVED codemms NOM PRENOM GENRE CLASSE RANKING STUDENT_NB AVERAGE EMAIL BASE PHOTO ENVOYE other
   do
-    # export recipient=$recipient
+    export recipient=$EMAIL
     # export cc=$(echo "$cc" | tr '[:upper:]' '[:lower:]')
+    export cc="mymedina@mymedinaschools.com"
     export code_mms=$codemms
+    # rewrite the value of PHOTO variable to be equal to "<code_mms>_BS1.jpg"
+    PHOTO=$code_mms"_BS1.jpeg"
     export file_path=$( echo $base_path/$( delete_white_characters "$( basename "$PHOTO" )"))
     export filename=$( echo $( get_suffixe "$( basename "$PHOTO" )") | tr ' ' '-' )
     # export from=$from
     export firstname=$(capitalize "$PRENOM")
     export name=$NOM
     export class=$CLASSE
-    # export ranking=$(capitalize "$ranking")
-    # export student_nb=$student_nb
-    # export average=$(replace_dot "$average")
+    export ranking=$(capitalize "$RANKING")
+    export student_nb=$STUDENT_NB
+    export average=$(replace_dot "$AVERAGE")
     # export year_average=$(replace_dot "$year_average")
     export boundary=$boundary
     export mime_type=$(file -b --mime-type "$file_path")
-    # export genre=$(echo $genre | tr '[:upper:]' '[:lower:]')
+    export genre=$(echo $GENRE | tr '[:upper:]' '[:lower:]')
     export is_done=$(echo $ENVOYE | tr '[:upper:]' '[:lower:]')
 
     # test if attachement exists
     does_exist=`test -f "$file_path" && echo "1" || echo "0"`
 
     if [[ $is_done != 'yes' && $does_exist == '1' ]]; then
-      j2 --format=env message-2024.txt.jinja2 > message.txt
+      j2 --format=env message.txt.jinja2 > message.txt
       base64 "$file_path" >> message.txt
       echo "" >> message.txt
       echo "--$boundary--" >> message.txt
 
       #wait for 30s
-      # sleep 2
+      sleep 1
 
       #send the email
       cat message.txt | msmtp -t -C config.ini -a $account
