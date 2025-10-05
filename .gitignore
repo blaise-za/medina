@@ -3,3 +3,4 @@ config.ini
 resources/*
 .DS_Store
 /out
+.DS_Store

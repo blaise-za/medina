@@ -16,8 +16,10 @@ services:
       - ./sendmails.sh:/sendmails.sh:ro
       - ./message-sem2.txt.jinja2:/message-sem2.txt.jinja2:ro
       - ./message-2024.txt.jinja2:/message-2024.txt.jinja2:ro
+      - ./message-rentree-2025.txt.jinja2:/message-rentree-2025.txt.jinja2:ro
       - ./sendmails-sem2.sh:/sendmails-sem2.sh:ro
       - ./sendmails-2024.sh:/sendmails-2024.sh:ro
+      - ./sendmails-2025.sh:/sendmails-2025.sh:ro
       - ./resources:/resources:ro
       - ./out:/out
 
